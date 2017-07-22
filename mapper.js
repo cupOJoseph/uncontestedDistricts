@@ -8,30 +8,20 @@ L.tileLayer('https://api.mapbox.com/styles/v1/schiarizzi/cj59vuej16abk2rmt34iod7
 //disable scroll with wheel so it fits into website nicer.
 map.scrollWheelZoom.disable();
 
-map.setMinZoom(5);
-
-function highlightFeature(e) {
-  var layer = e.target;
-
-  layer.setStyle({
-    fillColor: '#b0b1b2',
-    weight: 2,
-    opacity: 1,
-    color: white,
-    dashArray: '.25',
-    fillOpacity: 0.7
-  });
-
-  if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-    layer.bringToFront();
-  }
-
-  //UPDATE INFO BAR based on hover
-  info.update(layer.feature.properties);
-}
+map.setMinZoom(7);
 
 function onEachFeature(feature, layer) {
-  layer.bindPopup(`<h1>District #${feature.properties.DISTRICT_N}</h1>`);
+  const popupTemplate = `<h3>District #${feature.properties.DISTRICT_N}</h3>
+    <h4>Demographic Data (VAP/TP)</h4>
+    <p>Asian: ${feature.properties.VAPASIAN} / ${feature.properties.ASIAN}</p>
+    <p>Black: ${feature.properties.VAPBLACK} / ${feature.properties.BLACK}</p>
+    <p>Hispanic: ${feature.properties.VAP_HISP} / ${feature.properties.TOT_HISP}</p>
+    <p>Pacific Islander: ${feature.properties.VAPHAWPI} / ${feature.properties.HAWPI}</p>
+    <p>White: ${feature.properties.VAPWHITE} / ${feature.properties.WHITE}</p>
+    <p>Multi: ${feature.properties.VAPMULTI} / ${feature.properties.MULTI}</p>
+    <p>Other: ${feature.properties.VAPOTHER} / ${feature.properties.OTHER}</p>
+`;
+  layer.bindPopup(popupTemplate);
 }
 
 
