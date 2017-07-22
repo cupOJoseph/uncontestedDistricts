@@ -95,8 +95,3 @@ function style(features) {
             fillOpacity: 0.7}
         }
     }
-
-
-
-
-    //Style the map
