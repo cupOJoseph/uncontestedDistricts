@@ -6,20 +6,20 @@ L.tileLayer('https://api.mapbox.com/styles/v1/schiarizzi/cj59vuej16abk2rmt34iod7
 //{  }
 
 //disable scroll with wheel so it fits into website nicer.
-map.scrollWheelZoom.disable();
+//map.scrollWheelZoom.disable();
 
 map.setMinZoom(7);
 
 function onEachFeature(feature, layer) {
   const popupTemplate = `<h3>District #${feature.properties.DISTRICT_N}</h3>
-    <h4>Demographic Data (VAP/TP)</h4>
-    <p>Asian: ${feature.properties.VAPASIAN} / ${feature.properties.ASIAN}</p>
-    <p>Black: ${feature.properties.VAPBLACK} / ${feature.properties.BLACK}</p>
-    <p>Hispanic: ${feature.properties.VAP_HISP} / ${feature.properties.TOT_HISP}</p>
-    <p>Pacific Islander: ${feature.properties.VAPHAWPI} / ${feature.properties.HAWPI}</p>
-    <p>White: ${feature.properties.VAPWHITE} / ${feature.properties.WHITE}</p>
-    <p>Multi: ${feature.properties.VAPMULTI} / ${feature.properties.MULTI}</p>
-    <p>Other: ${feature.properties.VAPOTHER} / ${feature.properties.OTHER}</p>
+    <h4>Demographic Data (VAP)</h4>
+    <p>Asian: ${feature.properties.VAPASIAN}</p>
+    <p>Black: ${feature.properties.VAPBLACK}</p>
+    <p>Hispanic: ${feature.properties.VAP_HISP}</p>
+    <p>Pacific Islander: ${feature.properties.VAPHAWPI}</p>
+    <p>White: ${feature.properties.VAPWHITE}</p>
+    <p>Multi: ${feature.properties.VAPMULTI}</p>
+    <p>Other: ${feature.properties.VAPOTHER}</p>
 `;
   layer.bindPopup(popupTemplate);
 }
@@ -67,7 +67,7 @@ function style(features) {
       fillOpacity: 0.7
     }
   }else{
-    return{fillColor: '#ddea25', //make it grey if dem is not running.
+    return{fillColor: '#a9a9a9', //make it grey if dem is not running.
       weight: 2,
       opacity: 1,
       color: 'white',
