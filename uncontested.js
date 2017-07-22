@@ -1,7 +1,7 @@
 var states =
 {
-    "states" :  {
-        "Alabama" : [],
+    "state" :  {
+        "Alabama" : [1, 2, 3],
         "Alaska" : [],
         "Arizona" : [],
         "Arkansas" : [],
