@@ -48,6 +48,16 @@ map.on('click', onMapClick);
 
 var geojson;
 
+$.ajax({
+  url:"https://raw.githubusercontent.com/jschiarizzi/uncontestedDistricts/master/data/districts.geojson",
+  dataType: "json",
+  success: console.log("Districts data successfully loaded."),
+  error: function (xhr) {
+    alert(xhr.statusText)
+  }}).then(districts => {
+    L.geoJson(districts, {style: style}).addTo(map)
+  })
+
 console.log("created geojson");
 
 var replist = [4,5,6,14,15,16,19,22,24,76,78,24,61];
@@ -81,4 +91,3 @@ function style(features) {
 
 
     //Style the map
-L.geoJson(districts, {style: style}).addTo(map); //
