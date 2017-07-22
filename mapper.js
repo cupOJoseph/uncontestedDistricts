@@ -50,30 +50,39 @@ var geojson;
 
 console.log("created geojson");
 
-var replist = [4,5,6,14,15,16,19,22,24,76,78,24,61];
+var replist = [4,5,6,14,15,16,19,22,24,76,78,61];
  //list of districts by number where democrats are not running
- //no 4,5,6,14,15,16,19,22,76,78,24,61.
+
+  var demlist = [11,35,36,37,39,41,43,44,45,46,47,48,52,57,63,70,71,75,79,80,90,92,95 ];
+  //list of districts by number where republicans are not running
 
 //set color
 function style(features) {
-        if (replist.indexOf(features.properties.OBJECTID) == -1) { //if the district number is in the demlist
+        if (replist.indexOf(features.properties.OBJECTID) > -1) { //if the district number is in the demlist
             return {
-                fillColor: '#3a41ff', //make it blue if dem running.
+                fillColor: '#fc3c4c', //make it blue if rep not running
                 weight: 2,
                 opacity: 1,
                 color: 'white',
                 dashArray: '.25',
                 fillOpacity: 0.7
             };
-        }else{
+        }else if{
             return{
-                fillColor: '#d8d8d8', //make it grey if dem is not running.
+                fillColor: '#3a41ff', //make it grey if dem is not running.
                 weight: 2,
                 opacity: 1,
                 color: 'white',
                 dashArray: '.25',
                 fillOpacity: 0.7
             }
+        }else{
+            fillColor: '#ddea25', //make it grey if dem is not running.
+            weight: 2,
+            opacity: 1,
+            color: 'white',
+            dashArray: '.25',
+            fillOpacity: 0.7
         }
     }
 
