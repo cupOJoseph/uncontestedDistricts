@@ -77,7 +77,7 @@ function style(features) {
                 dashArray: '.25',
                 fillOpacity: 0.7
             };
-        }else if{
+        }else if(demlist.indexOf(features.properties.OBJECTID) > -1){
             return{
                 fillColor: '#3a41ff', //make it grey if dem is not running.
                 weight: 2,
@@ -87,12 +87,12 @@ function style(features) {
                 fillOpacity: 0.7
             }
         }else{
-            fillColor: '#ddea25', //make it grey if dem is not running.
+            return{fillColor: '#ddea25', //make it grey if dem is not running.
             weight: 2,
             opacity: 1,
             color: 'white',
             dashArray: '.25',
-            fillOpacity: 0.7
+            fillOpacity: 0.7}
         }
     }
 
